@@ -7,12 +7,13 @@
 # print(num)
 
 a = int(input('Задайте натуральное число '))
+
+
 def check_nat_num(num):
     for i in range(2, num):
         if num % i == 0:
             return False
     return True
-
 
 def get_table_num(num):
     table_natural_number = []
@@ -22,11 +23,7 @@ def get_table_num(num):
     table_natural_number.insert(0, 1)
     return table_natural_number
 
-
-
 listOfNaturalsNumbers = get_table_num(a)
-print(listOfNaturalsNumbers)
-
 
 def get_degree_of_number(num):
     list_of_number_and_degree = []
@@ -40,13 +37,15 @@ def get_degree_of_number(num):
                 num = num / listOfNaturalsNumbers[i]
                 degree += 1
             list_of_number_and_degree.extend([listOfNaturalsNumbers[i], degree])
-            #print(list_of_number_and_degree)
             degree = 0
             break
     return list_of_number_and_degree
 
 
 result = get_degree_of_number(a)
-print(result)
-
-
+for i in range(0, len(result), 2):
+    if result[i + 1] == 0:
+        i += 2
+    else:
+        print(f'{result[i]}**{result[i + 1]}', end=" ")
+        i += 2
