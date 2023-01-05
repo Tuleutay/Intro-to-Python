@@ -8,17 +8,16 @@ import random
 k = int(input('Введите натуральную степень ')) + 1
 
 def get_odds(num):
-    x = None
-    lst1 = list(random.randint(0, 100) for i in range(num))
+    randomNumbersList = list(random.randint(0, 100) for i in range(num))
     stringa = ''
-    # while i < len(lst1):
-    for i in range(len(lst1) - 1, -1, -1):
+    # while i < len(randomNumbersList):
+    for i in range(len(randomNumbersList) - 1, -1, -1):
         if i == 1:
-            stringa += f'{lst1[i]}*x + '
+            stringa += f'{randomNumbersList[i]}*x + '
         elif i == 0:
-            stringa += str(lst1[0])
+            stringa += str(randomNumbersList[0])
         else:
-            stringa += f'{lst1[i]}*x**{i} + '
+            stringa += f'{randomNumbersList[i]}*x**{i} + '
     return stringa
 
 result = get_odds(k)
