@@ -3,43 +3,55 @@
 
 a = int(input('Задайте натуральное число '))
 
-def check_nat_num(num):
-    for i in range(2, num):
-        if num % i == 0:
-            return False
-    return True
+# def check_nat_num(num):
+#     for i in range(2, num):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# def get_table_num(num):
+#     table_natural_number = []
+#     for i in range(2, num + 1):
+#         if check_nat_num(i):
+#             table_natural_number.append(i, )
+#     table_natural_number.insert(0, 1)
+#     return table_natural_number
+#
+# listOfNaturalsNumbers = get_table_num(a)
+#
+# def get_degree_of_number(num):
+#     list_of_number_and_degree = []
+#     i = 1
+#     degree = 0
+#     for i in listOfNaturalsNumbers:
+#         while num > 1:
+#             if num / listOfNaturalsNumbers[i] - int(num / listOfNaturalsNumbers[i]) != 0:
+#                 i += 1
+#             while num > 1 and num / listOfNaturalsNumbers[i] - int(num / listOfNaturalsNumbers[i]) == 0:
+#                 num = num / listOfNaturalsNumbers[i]
+#                 degree += 1
+#             list_of_number_and_degree.extend([listOfNaturalsNumbers[i], degree])
+#             degree = 0
+#             break
+#     return list_of_number_and_degree
+#
+#
+# result = get_degree_of_number(a)
+# for i in range(0, len(result), 2):
+#     if result[i + 1] == 0:
+#         i += 2
+#     else:
+#         print(f'{result[i]}**{result[i + 1]}', end=" ")
+#         i += 2
 
-def get_table_num(num):
-    table_natural_number = []
-    for i in range(2, num + 1):
-        if check_nat_num(i):
-            table_natural_number.append(i, )
-    table_natural_number.insert(0, 1)
-    return table_natural_number
+i = 2
+list = []
 
-listOfNaturalsNumbers = get_table_num(a)
-
-def get_degree_of_number(num):
-    list_of_number_and_degree = []
-    i = 1
-    degree = 0
-    for i in listOfNaturalsNumbers:
-        while num > 1:
-            if num / listOfNaturalsNumbers[i] - int(num / listOfNaturalsNumbers[i]) != 0:
-                i += 1
-            while num > 1 and num / listOfNaturalsNumbers[i] - int(num / listOfNaturalsNumbers[i]) == 0:
-                num = num / listOfNaturalsNumbers[i]
-                degree += 1
-            list_of_number_and_degree.extend([listOfNaturalsNumbers[i], degree])
-            degree = 0
-            break
-    return list_of_number_and_degree
-
-
-result = get_degree_of_number(a)
-for i in range(0, len(result), 2):
-    if result[i + 1] == 0:
-        i += 2
+while i <= a:
+    if a % i == 0:
+        list.append(i)
+        a //= i
+        i = 2
     else:
-        print(f'{result[i]}**{result[i + 1]}', end=" ")
-        i += 2
+        i += 1
+print(list)
